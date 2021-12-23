@@ -8,6 +8,13 @@
       rel="stylesheet"
     />
     <div class="max-w-4xl mx-auto sm:px-6 lg:px-8">
+      <h2>ログイン状態:{{ $auth.loggedIn }}</h2>
+      <p>{{ $store.state.auth.user }}</p>
+      <div>
+        <nav>
+          <nuxt-link to="/log-in">Login</nuxt-link>
+        </nav>
+      </div>
       <a
         class="flex justify-center pt-8 sm:pt-0"
         href="https://nuxtjs.org"

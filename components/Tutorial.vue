@@ -15,6 +15,9 @@
           <nuxt-link to="/log-in">Login</nuxt-link>
         </nav>
       </div>
+      <div v-if="$auth.loggedIn">
+        <button @click="$auth.logout()">Logout</button>
+      </div>
       <a
         class="flex justify-center pt-8 sm:pt-0"
         href="https://nuxtjs.org"

@@ -37,6 +37,10 @@ export default {
 
   // Auth
   auth: {
+    redirect: {
+      home: '/dashboard-main',
+      logout: '/log-in',
+    },
     strategies: {
       local: {
         endpoints: {
@@ -58,4 +62,9 @@ export default {
   axios: {
     baseURL: 'http://localhost:5000/',
   },
+
+  // router
+  // router: {
+  //   middleware: ['user_auth'],
+  // },
 }

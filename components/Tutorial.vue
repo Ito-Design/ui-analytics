@@ -8,15 +8,13 @@
       rel="stylesheet"
     />
     <div class="max-w-4xl mx-auto sm:px-6 lg:px-8">
-      <h2>ログイン状態:{{ $auth.loggedIn }}</h2>
-      <p>{{ $store.state.auth.user }}</p>
       <div>
         <nav>
-          <nuxt-link to="/log-in">Login</nuxt-link>
+          <br />
+          <nuxt-link to="/log-in">ログイン画面へ</nuxt-link>
+          <br />
+          <nuxt-link to="/register-member">ユーザー登録</nuxt-link>
         </nav>
-      </div>
-      <div v-if="$auth.loggedIn">
-        <button @click="$auth.logout()">Logout</button>
       </div>
       <a
         class="flex justify-center pt-8 sm:pt-0"

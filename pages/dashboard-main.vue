@@ -1,15 +1,16 @@
 <template>
   <div>
     <h1>ダッシュボード</h1>
-    <h1>{{ message }}</h1>
-    <h2>{{ sort_key }}</h2>
+    <h2>{{ sort_key }}: {{ sort_asc ? '昇順' : '降順' }}</h2>
     <table>
       <thead>
         <tr>
           <!-- ソートする引数を指定 -->
-          <th @click="sortBy('name')">Name</th>
-          <th @click="sortBy('email')">Email</th>
-          <th @click="sortBy('website')">Website</th>
+          <th :class="addClass('name')" @click="sortBy('name')">Name</th>
+          <th :class="addClass('email')" @click="sortBy('email')">Email</th>
+          <th :class="addClass('website')" @click="sortBy('website')">
+            Website
+          </th>
         </tr>
       </thead>
       <tbody>
@@ -36,15 +37,18 @@ export default {
       message: 'Sort Column In Table',
       users: [],
       sort_key: '',
+      sort_asc: true,
     }
   },
   computed: {
     sort_users() {
       const sortUsers = this.users
       if (this.sort_key !== '') {
+        let set = 1
+        this.sort_asc ? (set = 1) : (set = -1)
         sortUsers.sort((a, b) => {
-          if (a[this.sort_key] < b[this.sort_key]) return -1
-          if (a[this.sort_key] > b[this.sort_key]) return 1
+          if (a[this.sort_key] < b[this.sort_key]) return -1 * set
+          if (a[this.sort_key] > b[this.sort_key]) return 1 * set
           return 0
         })
         return sortUsers
@@ -80,8 +84,16 @@ export default {
   },
   methods: {
     sortBy(key) {
+      this.sort_key === key
+        ? (this.sort_asc = !this.sort_asc)
+        : (this.sort_asc = true)
       this.sort_key = key
-      console.log()
+    },
+    addClass(key) {
+      return {
+        asc: this.sort_key === key && this.sort_asc,
+        desc: this.sort_key === key && !this.sort_asc,
+      }
     },
   },
 }
@@ -101,5 +113,11 @@ th {
 th {
   color: white;
   background-color: #1e90ff;
+}
+.asc::after {
+  content: '▼';
+}
+.desc::after {
+  content: '▲';
 }
 </style>

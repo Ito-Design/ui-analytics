@@ -41,7 +41,7 @@ export default {
   // Auth
   auth: {
     redirect: {
-      home: '/dashboard-main',
+      home: '/projects',
       logout: '/log-in',
     },
     strategies: {

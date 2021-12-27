@@ -21,6 +21,7 @@
 
 <script>
 export default {
+  layout: 'notLogin',
   data() {
     return {
       user: {

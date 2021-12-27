@@ -6,7 +6,5 @@
 </template>
 
 <script>
-export default {
-  middleware: 'user_auth',
-}
+export default {}
 </script>

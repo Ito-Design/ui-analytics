@@ -13,7 +13,7 @@
         </div>
         <div class="form-group">
           <label for="password">Password:</label>
-          <input type="password" v-model="user.password" />
+          <input v-model="user.password" type="password" />
         </div>
         <button type="submit">登録</button>
       </form>
@@ -23,6 +23,7 @@
 
 <script>
 export default {
+  layout: 'notLogin',
   data() {
     return {
       user: {

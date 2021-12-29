@@ -10,9 +10,11 @@
       </tr>
     </thead>
     <tbody>
-      <tr v-for="item in items" :key="item.id">
+      <tr v-for="item in items" :key="item.index">
         <td>
-          <a :href="item.domain">{{ item.name }}</a>
+          <nuxt-link :to="`/projects/${item.id}/dashboard`">{{
+            item.name
+          }}</nuxt-link>
         </td>
         <td>{{ item.pv }}</td>
         <td>{{ item.visit }}</td>
@@ -20,7 +22,10 @@
           <span v-if="item.tracking === 1">正常にトラッキング中</span>
           <span v-else>未トラッキング</span>
         </td>
-        <td><a href="#">■</a> <a href="#">●</a></td>
+        <td>
+          <a href="#">■</a>
+          <nuxt-link :to="`/projects/${item.id}/setting`">設定</nuxt-link>
+        </td>
       </tr>
     </tbody>
   </table>

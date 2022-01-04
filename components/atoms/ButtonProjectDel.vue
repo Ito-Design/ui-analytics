@@ -13,7 +13,7 @@ export default {
   methods: {
     deleteRow(id) {
       this.$axios
-        .get('/api/project/del/' + id)
+        .delete('/api/project/del/' + id)
         .then((response) => {
           console.log(response)
           this.$router.push('/projects')

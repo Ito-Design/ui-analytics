@@ -31,10 +31,12 @@ export default {
   },
   methods: {
     updateProject() {
-      this.$axios.$get(
-        '/api/project/update/' + this.$route.params.id,
-        this.updateData.name
-      )
+      this.$axios
+        .$put('/api/project/update/' + this.$route.params.id, this.updateData)
+        .then((response) => {
+          console.log(response)
+          this.$router.push('/projects')
+        })
     },
   },
 }

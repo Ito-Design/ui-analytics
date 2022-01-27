@@ -65,7 +65,7 @@ export default {
 
   // Axios
   axios: {
-    baseURL: 'http://localhost:5000/',
+    baseURL: 'http://192.168.11.252:5000/',
   },
 
   // router

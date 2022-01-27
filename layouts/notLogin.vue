@@ -6,5 +6,11 @@
 </template>
 
 <script>
-export default {}
+export default {
+  head: {
+    bodyAttrs: {
+      class: 'bg-colorBase200 text-colorBase500',
+    },
+  },
+}
 </script>

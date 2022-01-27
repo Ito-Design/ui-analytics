@@ -25,7 +25,7 @@ export default {
   },
   methods: {
     registerProject() {
-      this.$axios.post('/api/project/register', this.items)
+      this.$axios.$post('/api/project/register', this.items)
     },
     submit() {
       this.$router.push({ name: 'projects' })

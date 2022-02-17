@@ -12,7 +12,7 @@
         cancelLabel: 'Cancel',
         weekLabel: 'W',
         customRangeLabel: 'Custom Range',
-        daysOfWeek: ['月', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
+        daysOfWeek: ['日', '月', '火', '水', '木', '金', '土'],
         monthNames: [
           'Jan',
           'Feb',
@@ -41,11 +41,11 @@
         <div class="ranges">
           <ul>
             <li
-              v-for="(range, name) in ranges.ranges"
-              :key="name"
+              v-for="(range, rangeLocale) in ranges.ranges"
+              :key="rangeLocale"
               @click="ranges.clickRange(range)"
             >
-              <b>{{ name }}</b>
+              <b>{{ rangeLocale }}</b>
             </li>
           </ul>
         </div>
